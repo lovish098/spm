@@ -1,0 +1,347 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+ 
+body{
+  overflow-x: hidden;
+  
+}
+
+/* It only includes CSS of Header */
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    margin: 0 4rem;
+}
+
+.head-text {
+    text-align: left;
+}
+
+.name {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    letter-spacing: -1px;
+    font-size: 3rem;
+    font-weight: 700 ;
+    background: linear-gradient(90deg, #1597E0 0%, #272727 46%, #377ED2 99.98%, #8A7A7A 99.99%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+     background-clip: text;
+     text-shadow: 5px 10px 10px rgba(0, 0, 0, 0.3);
+}
+
+.slogan {
+    font-size: 1.2rem;
+    background: linear-gradient(90deg, #1597E0 0%, #272727 46%, #377ED2 99.98%, #8A7A7A 99.99%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.icons {
+    display: flex;
+    align-items: center;
+}
+
+.icons a {
+    margin-left: 0.7rem;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+
+.skip-content {
+    font-size: 1rem;
+    margin-left: 1rem;
+    border-left: 1px solid black ;
+}
+
+/* From here the css of navbar will start */
+
+.navbar {
+  background: linear-gradient(90deg, #1597E0 0%, #5AAEDE 32%, #A7C3D3 53%, #5EAFDE 74%, #1597E0 100%);
+   font-size: larger;
+   }
+
+.navbar ul {
+  font-family: "Crimson text",sans-serif;
+    list-style-type: none;
+    display: flex;
+    justify-content: space-evenly;
+    padding: 0;
+}
+
+.navbar ul li {
+    position: relative;
+}
+
+.navbar ul li a {
+    display: block;
+    color: black;
+    text-align: center;
+    padding: 14px 20px;
+    text-decoration: none;
+}
+
+.navbar ul li a:hover {
+    background-color: #005A9C;
+}
+
+/* Dropdown styling */
+.dropdown .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: white;
+    min-width: 19rem;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    top: 100%;
+    left: 0;
+
+}
+
+.dropdown .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+    font-size: medium;
+}
+
+.dropdown .dropdown-content a:hover {
+    background-color: #1597E0;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Container for the Title and Lines */
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* Title Styling */
+  .wlcm-txt {
+    font-family: "Arizonia",sans-serif;
+    font-size: 3em;
+    margin: 2rem;
+    font-weight: 500;
+    white-space: nowrap;
+    text-shadow: 5px 10px 10px #229799;
+  }
+  
+  /* Line Styling */
+  .line {
+    border-top: 1px solid black;
+    width: 12rem;
+    position: relative;
+  }
+  
+  .line::before, .line::after {
+    content: '';
+    width:  8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+  }
+  
+  .line::before {
+    left: -10px;
+  }
+  
+  .line::after {
+    right: -10px;
+  }
+
+
+  .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%; 
+    margin-bottom: 3rem;
+    margin-top: 1rem;
+}
+
+.login-container {
+    width: 60%;
+    max-width: 900px;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6);
+}
+
+.login-box {
+    display: flex;
+}
+
+.login-left, .login-right {
+    padding: 30px;
+    flex: 1;
+}
+
+.login-left {
+    background-color: #d9d9d9;
+}
+
+.login-left h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.login-left form {
+    display: flex;
+    flex-direction: column;
+}
+
+.login-left label {
+    margin-bottom: 5px;
+    font-size: 1.5rem;
+}
+
+.login-left input {
+    width: 16rem;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 30px;
+    border: none;
+    background-color: #a8a2a2;
+    color: white;
+}
+
+.login-left button {
+    margin-left: 2.5rem;
+    width: 10rem;
+    padding: 10px;
+    border-radius: 30px;
+    background-color: #229799;
+    border: 1px solid black;
+    color: white;
+    cursor: pointer;
+}
+
+.login-left button:hover {
+    background-color: green;
+}
+
+.login-options {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+}
+
+.login-options a {
+    color: #000;
+    text-decoration: none;
+    font-size: 1rem;
+    padding-top: 1rem;
+}
+
+.login-options a:hover {
+    text-decoration: underline;
+    color: #3d3d7a;
+}
+
+.login-right {
+    background: linear-gradient(to right, #d9d9d9 0%, #229799 100%);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.login-right h1 {
+    font-size: 40px;
+    margin-bottom: 10px;
+}
+
+.login-right p {
+    font-size: 18px;
+}
+
+/* It includes the css of line with two dots */
+
+.line-with-dots {
+    position: relative;
+    width: 55rem; /* Adjust the width of the line */
+    height: 1px; /* Thickness of the line */
+    background-color: black;
+    margin: 50px auto; /* Center the line horizontally */
+  }
+  
+  .line-with-dots::before, .line-with-dots::after {
+    content: '';
+    position: absolute;
+    width: 10px; /* Size of the dots */
+    height: 10px;
+    background-color: black;
+    border-radius: 50%;
+    top: -4px; /* Adjust the vertical position of the dots */
+  }
+  
+  .line-with-dots::before {
+    left: -10px; /* Position the left dot */
+  }
+  
+  .line-with-dots::after {
+    right: -10px; /* Position the right dot */
+  }
+/* It includes the css of footer */
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px; background: linear-gradient(90deg, #1597E0 0%, #5AAEDE 32%, #A7C3D3 53%, #5EAFDE 74%, #1597E0 100%);
+    border-top: 1px solid black;
+  }
+  
+  .left-section ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .left-section li {
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+    color: #000;
+  }
+  
+  .center-section p {
+    
+    font-size: 1.3rem;
+    margin-bottom: 10px;
+    color: #000;
+  }
+  .center-section span{
+    font-weight: bold;
+    color: #3d3d7a;
+  }
+  
+  .right-section p {
+    font-size: 1.3rem;
+    color: #5a5151;
+    margin-bottom: 10px;
+    margin-left: 0.5rem;
+  }
+  
+  .footer-social-icons i {
+    width: 30px;
+    height: 30px;
+    margin-left: 10px;
+  }

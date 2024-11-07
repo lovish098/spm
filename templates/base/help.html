@@ -1,0 +1,139 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/help.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <title>Help</title>
+</head>
+<body>   
+        
+       
+    
+     <!-- It includes the navbar -->
+     {% include 'base/nav.html' %}
+
+<!-- It includes the help heading -->
+
+<div class="help" id="section1">
+    <div class="line"></div>
+      <h1 class="help-txt">Help</h1>
+    <div class="line"></div>
+</div>
+
+   <!-- it is the div of our values -->
+
+   <div class="quick-answers" >
+    <h2 class="heading1">Quick Answers</h2>
+    <p class="p1">Got a Quick Question? Start here!</p>
+   <ul class="answers">
+    
+    <li class="list-head" > 
+        Account Management</li>
+        <ul class="underlist">
+<li>
+    How do I reset my password?
+</li>
+<li>
+        How can I update my email address?
+</li>
+        </ul>
+        
+        
+    
+    <li class="list-head">
+        Billing & Subscriptions
+    </li>
+        <ul class="underlist">
+            <li>
+                What payment methods do you accept?
+
+            </li>
+           
+            <li>
+                How do I cancel my subscription?
+            </li>
+        </ul>
+   
+    <li class="list-head">
+        Product Usage
+    </li>
+       <ul class="underlist">
+        <li>
+            How do I get started with [Product Name]?
+
+        </li>
+        <li>
+            What should I do if I encounter an error?
+        </li>
+       </ul>
+    
+   </ul>
+ </div>
+
+
+                  <!-- it is the div of contact us -->
+
+                  <div class="contact-us">
+                    <h2 class="heading2">Contact us</h2>
+                    <p class="p2">Still have questions? We're here to help!
+                    </p>
+                   <ul class="points">
+                    <li> 
+                        Email Support: support@example.com
+                    </li>
+                    <li>
+                        Live Chat: Available Monday - Friday, 9 AM - 5PM
+        
+                    </li>
+                    <li>
+                        Phone Support: 1-800-123-4567 (available during support hours)
+                    </li>
+                   </ul>
+                 </div>
+        
+
+                 <!-- it is the div of feedback -->
+
+                 <div class="feedback">
+                    <h2 class="heading3">feedback</h2>
+                    <p class="p3"> We value your input!</p>
+                    
+                   <ul class="feedback-points">
+                    <li>
+                        Have suggestions or need something specific?
+        
+                    </li>
+                    <li>
+                        Let us know how we can improve our Help Center! Feedback Form
+                    </li>
+                   </ul>
+                 </div>
+
+
+                   <!-- it includes the thank you text and under text of thank you -->
+
+                  
+
+  <div class="container-last">
+      <p class="paragraph-last">
+          
+          For Being A Part Of Our Journey. We Invite You To Explore Our SPARSH And Connect With Us. Together, Let's Make A Difference!
+      </p>
+ </div>
+
+ <div class="help">
+    <div class="line"></div>
+      <h1 class="help-txt">Thank You</h1>
+    <div class="line"></div>
+</div>
+
+
+ <!-- It includes the footer part -->
+{% include 'base/footer.html' %}
+
+</body>
+</html>

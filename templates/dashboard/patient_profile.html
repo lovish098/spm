@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile - {{ patient_profile.uname }}</title>
+    <link rel="stylesheet" href="{% static 'css/pp.css' %}">
+</head>
+<body>
+    <h1>Patient Profile: {{ patient_profile.uname }}</h1>
+    <img src="{{ patient_profile.image.url }}" alt="{{ patient_profile.uname }}'s Image" width="150">
+
+    <p><strong>Mobile:</strong> {{ patient_profile.umobile }}</p>
+    <p><strong>Email:</strong> {{ patient_profile.uemail }}</p>
+    <p><strong>Address:</strong> {{ patient_profile.uaddress }}</p>
+    <p><strong>Gender:</strong> {{ patient_profile.get_gender_display }}</p>
+    <p><strong>Age:</strong> {{ patient_profile.age }}</p>
+    <p><strong>District:</strong> {{ patient_profile.district.name }}</p>
+
+    <h2>Reports</h2>
+    {% if patient_profile.report %}
+        <a href="{{ patient_profile.report.url }}" target="_blank">Download Report</a>
+    {% else %}
+        <p>No reports available.</p>
+    {% endif %}
+
+    <a href="{% url 'ddashboard' %}">Back to Dashboard</a>
+</body>
+</html>

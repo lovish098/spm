@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="registrationform.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <title>Registration Form</title>
+</head>
+<body>
+ <!-- It includes only Head part -->
+  <section class="home" id="home">
+    <header class="header">
+        <div class="head-text">
+            <h1 class="name">SPARSH </h1>
+            <p class="slogan"> स्वास्थ्य की ओर पहला कदम, हर अपॉइंटमेंट एक स्पर्श           
+         </p>
+        </div>
+        
+        <div class="icons">
+           <a href="#"></a> <i class="fa-brands fa-facebook-f"></i>
+           <a href="#"></a> <i class="fa-brands fa-instagram"></i>
+           <a href="#"></a> <i class="fa-brands fa-twitter"></i>
+            <a href="#" class="skip-content">&ensp;Skip Content</a>
+        </div>
+    
+    </header>
+  </section>
+
+    
+   
+
+ <!-- It includes the navbar -->
+ {% include 'base/nav.html' %}
+ <!-- It includes the image slider -->
+
+    <div class="container">
+        <div class="slides">
+        <!-- Image 1 -->
+        <div class="slide">
+            <img class="slide-img"  src="img/med form fillin.jpg" alt="Image 1">
+        </div>
+        <!-- Image 2 -->
+        <div class="slide">
+            <img class="slide-img" src="img/form filling.jpg" alt="Image 2">
+        </div>
+        <!-- Image 3 -->
+        <div class="slide">
+            <img class="slide-img"  src="img/med form.jpg" alt="Image 3">
+        </div>
+        <!-- Image 4 -->
+        <div class="slide">
+            <img class="slide-img"  src="img/medical form.jpg" alt="Image 4">
+        </div>
+        <!-- Image 5 -->
+        <div class="slide">
+            <img class="slide-img"  src="img/woman med form.jpg" alt="Image 5">
+        </div>
+        </div>
+    </div>
+
+
+
+    <div class="welcome">
+        <div class="line"></div>
+        <h1 class="wlcm-txt">Registration Form</h1>
+        <div class="line"></div>
+       </div>
+
+
+      <!-- It is the css of patients form -->
+
+       <div class="form-container">
+        <form>
+            <h1 class="personal">Personal Information</h1>
+            <label for="name">Patient's name :</label>
+            <input type="text" id="name" name="name" required><br>
+
+            <label for="gender">Gender :</label>
+            <select id="gender" name="gender">
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select><br>
+
+            <label for="age">Age :</label>
+            <input type="number" id="age" name="age" required><br>
+
+            <label for="phone">Phone number :</label>
+            <input type="tel" id="phone" name="phone" required><br>
+
+            <label for="aadhar">Aadhar number :</label>
+            <input type="text" id="aadhar" name="aadhar" required><br>
+
+            <label for="visit-date">Visit date :</label>
+            <input type="date" id="visit-date" name="visit-date" required><br>
+
+            <label for="visit-time">Visit time :</label>
+            <input type="time" id="visit-time" name="visit-time" required><br>
+
+            <label for="hospital">Select hospital :</label>
+            <select id="hospital" name="hospital">
+                <option value="hospital1">Hospital 1</option>
+                <option value="hospital2">Hospital 2</option>
+                <option value="hospital3">Hospital 3</option>
+            </select><br>
+
+            <label for="opd">OPD to visit :</label>
+            <select id="opd" name="opd">
+                <option value="opd1">OPD 1</option>
+                <option value="opd2">OPD 2</option>
+                <option value="opd3">OPD 3</option>
+            </select>
+        </form>
+    </div>
+
+     <!-- Submit Button outside the form -->
+     <div class="button-container">
+        <button type="submit" class="submit-btn">SUBMIT</button>
+    </div>
+
+    <div class="line-with-dots"></div>
+
+      <!-- It includes the footer part -->
+
+      <footer class="footer-container">
+        <div class="left-section">
+            <ul>
+                <li>Privacy Policy</li>
+                <li>Non-Discrimination Policy</li>
+                <li>Terms of Use</li>
+                <li>Patient Rights and Responsibilities</li>
+            </ul>
+        </div>
+        <div class="center-section">
+            <p><span>Contact no :</span> 1234567890</p>
+            <p><span>Email id :</span> sparsh.healthservice@gmail.com</p>
+            <p><span>Address :</span> abcdefghijkl,mnopq</p>
+        </div>
+        <div class="right-section">
+            <p>Follow Us On</p>
+            <div class="footer-social-icons">
+                <a href="#"></a> <i class="fa-brands fa-facebook-f"></i>
+                <a href="#"></a> <i class="fa-brands fa-instagram"></i>
+                <a href="#"></a> <i class="fa-brands fa-twitter"></i>
+            </div>
+        </div>
+    </footer>
+    

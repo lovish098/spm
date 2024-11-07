@@ -1,0 +1,263 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/bookappointment.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <title>Book Appointment</title>
+</head>
+<body>
+
+    {% include 'base/nav.html' %}
+    
+    <div class="welcome">
+        <div class="line"></div>
+        <h1 class="wlcm-txt">Book An Appointment</h1>
+        <div class="line"></div>
+       </div>
+
+           <div id="stepsModal" style="display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);">
+                <div id="modalContent" style="background-color: white;
+                margin: 15% auto;
+                padding: 20px;
+                width: 85%;
+                max-width: 400px;
+                border-radius: 10px;
+                text-align: left;">
+                    <h2>Steps to get appointment</h2><br>
+                    <hr>
+                    <span style="color: rgb(206, 20, 20);">basic info will taken from you profile 
+
+                    </span>
+                    <hr><br>
+                    <ul style="list-style-type: none;">
+                        <li>Step 1: select the opd type </li>
+                        <li>Step 2: select your desired time slot</li>
+                        <li>Step 3: <span style="color: rgb(206, 20, 20);">
+                            select the available time slote when you are ready to submit  
+
+                        </span>.</li>
+                        <li>Step 4: Your appointment will be booked. and you you will  
+                             get confirmation mail</li>
+                    </ul>
+                    <button onclick="closeModal()" style="margin-top: 20px;
+                    margin-left: 8rem;
+                    padding: 10px;
+                    background-color: #4CAF50;
+                    color: white;
+                    border: none;
+                    cursor: pointer;">Got it!</button>
+                </div>
+            </div> 
+            
+            <script>
+                // // Function to check if the popup has been shown before
+                // function showPopupOnce() {
+                //     if (!localStorage.getItem('popupShown')) {
+                //         document.getElementById("stepsModal").style.display = "block";
+                //         localStorage.setItem('popupShown', 'true');
+                //     }
+                // }
+            
+                // // Function to close the modal
+                // function closeModal() {
+                //     document.getElementById("stepsModal").style.display = "none";
+                // }
+            
+                // // Show the popup only once when the page loads
+                // window.onload = function() {
+                //     showPopupOnce();
+                // }
+
+                // --------------------------------------
+
+                // function showPopup() {
+                //     document.getElementById("stepsModal").style.display = "block";
+                // }
+
+                // // Function to close the modal
+                // function closeModal() {
+                //     document.getElementById("stepsModal").style.display = "none";
+                // }
+
+                // // Show the popup every time the page loads
+                // window.onload = function() {
+                //     showPopup();
+                // }
+
+            </script>
+    </div>
+    
+     <div class="form-container">
+
+        <form method="POST" action=""> 
+            {% csrf_token %}
+    
+
+    
+                <label for="district">District :</label>
+                <select id="district" name="district">
+                    <!-- Placeholder option for no selection -->
+                    <option value="">--- Select a District ---</option>
+                    
+                    <!-- Loop through all districts -->
+                    {% for district in district %}
+                        <option value="{{ district.id }}" 
+                            {% if user_profile.district and user_profile.district.id == district.id %}selected{% endif %}>
+                            {{ district.name }}
+                        </option>
+                    {% endfor %}
+                </select><br>
+    
+    
+    
+    
+    
+                <label for="area_profile">Hospital :</label>
+                <select id="area_profile" name="area_profile">
+                    <!-- Placeholder option for no selection -->
+                    <option value="">--- Select a Hospital ---</option>
+                    
+                    <!-- Loop through all hospitals -->
+                    {% for hospital in area_profile %}
+                        <option value="{{ hospital.id }}" 
+                            {% if user_profile.area_profile and user_profile.area_profile.id == hospital.id %}selected{% endif %}>
+                            {{ hospital.uname }}
+                        </option>
+                    {% endfor %}
+                </select><br>
+    
+         
+                    <label for="name">Patient's name :</label>
+                    <input type="text" id="name" name="name" value="{{ user_profile.uname }}" required><br>
+        
+                    <label for="gender">Gender :</label>
+                    <select id="gender" name="gender">
+                        <option value="M" {% if user_profile.gender == 'M' %}selected{% endif %}>Male</option>
+                        <option value="F" {% if user_profile.gender == 'F' %}selected{% endif %}>Female</option>
+                        <option value="O" {% if user_profile.gender == 'O' %}selected{% endif %}>Other</option>
+                    </select><br> 
+        
+                    <label for="age">Age :</label>
+                    <input type="number" id="age" name="age" required value="{{ user_profile.age }}"><br>
+        
+                    <label for="phone">Phone number :</label>
+                    <input type="tel" id="phone" name="phone" required value="{{ user_profile.umobile }}"><br>
+        
+                    <label for="aadhar">Aadhar number :</label>
+                    <input type="text" id="aadhar" name="aadhar" required value="{{ user_profile.uaadhar }}"><br>
+        
+    
+                    <label for="email">Email id :</label>
+                    <input type="text" id="email" name="uemail" required value="{{ user_profile.uemail }}"><br>
+
+
+
+                    <label for="opd type">OPD type :</label>
+                    <select id="opd" name="opd">
+                        <option value="">--- Select a time slot ---</option>
+                        {% for opd_type in opd_types %}
+                            <option value="{{ opd_type.id }}">{{ opd_type.name }}</option>
+                        {% endfor %}
+                    </select>
+
+    
+                    <br>
+                    <span style="color: red;">Select only one slote Morning or Evening</span>
+                    <br>
+    
+                    <h3>Available Slots</h3>
+                    <select id="slots_select" name="time_slot">
+                        <option value="">--- Select a time slot ---</option>
+                        {% for slot in morning_slots %}
+                            <option name="time_slot" value="{{ slot.id }}">
+                               {{ slot.opd_type }} - {{ slot.get_session_display }} - {{ slot.time }} 
+                            </option>
+                        {% endfor %}
+                        {% for slot in evening_slots %}
+                            <option name="time_slot" value="{{ slot.id }}">
+                                {{ slot.opd_type }} - {{ slot.get_session_display }} - {{ slot.time }} 
+                            </option>
+                        {% empty %}
+                            <option disabled>No available slots at the moment.</option>
+                        {% endfor %}
+                    </select>
+
+
+                   <div class="button-container">
+                        <button type="submit" class="submit-btn">Make Appointment</button>
+                
+                   </div>
+
+                                       
+            </div>
+
+
+           
+        </form>
+
+     </div>
+
+     
+
+
+  <!-- js scripts to track which opd has selected -->
+        <script>
+            // Get the select element by its ID
+            const opdSelect = document.getElementById('opd');
+            const slotsSelect = document.getElementById('slots_select'); // Make sure this ID matches your HTML
+
+            // Add an event listener for the 'change' event
+            opdSelect.addEventListener('change', function() {
+                // Get the selected option
+                const selectedOption = opdSelect.options[opdSelect.selectedIndex];
+                // Get the name (text content) of the selected option
+                const selectedName = selectedOption.text;
+                // Log the selected name to the console
+                console.log("Selected OPD Type: " + selectedName);
+
+                // Call the function to filter and print time slots
+                filterAndPrintTimeSlots(selectedName); // Pass the selected name to the function
+            });
+
+            // Function to filter and print time slots to the console
+            function filterAndPrintTimeSlots(selectedName) {
+                console.log("Available Time Slots:");
+
+                for (let i = 0; i < slotsSelect.options.length; i++) {
+                    const slot = slotsSelect.options[i];
+                    const slotText = slot.text; // Get the text of the slot
+                    const slotValue = slot.value; // Get the value of the slot
+                    const slotOpdId = slot.getAttribute("data-opd"); // Get the associated OPD type ID
+
+                    // Log the slot details
+                    console.log(`Slot: ${slotText}, Value: ${slotValue}, OPD ID: ${slotOpdId}`);
+
+                    // Check if the slot text matches the selected OPD type name
+                    if (slotText.includes(selectedName)) { // Use includes to check for a match
+                        console.log("Great! This slot matches the selected OPD type.");
+                        slot.style.display = "block"; // Show matching slot
+                    } else {
+                        slot.style.display = "none"; // Hide non-matching slot
+                    }
+                }
+            }
+        </script> 
+
+
+
+
+   {% include 'base/footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,262 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+}
+
+body{
+overflow-x: hidden;
+
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 1rem 0;
+  }
+  
+  /* Title Styling */
+  .about-txt {
+    font-family: "Arizonia",sans-serif;
+    font-size: 3em;
+    margin: 0 2rem;
+    white-space: nowrap;
+  }
+  
+  /* Line Styling */
+  .line {
+    border-top: 1px solid black;
+    width: 15rem;
+    position: relative;
+  }
+  
+  .line::before, .line::after {
+    content: '';
+    width:  8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+  }
+  
+  .line::before {
+    left: -10px;
+  }
+  
+  .line::after {
+    right: -10px;
+  }
+
+
+/* It is the css of paragraph below about sparsh */
+
+.container1 {
+       display: flex;
+       justify-content: center;
+       font-family: "Crimson Text",sans-serif;
+       margin: 1rem 6rem  ;
+       font-weight: 500;
+       font-size: x-large;
+       text-align: center;
+}
+
+/* It includes the Css of Our mission box */
+
+.our-mission{
+    margin-top: 2rem;
+    margin-left: 6.5rem;
+    background: linear-gradient(90deg, #1597E0 0%, #5AAEDE 32%, #A7C3D3 53%, #5EAFDE 74%, #1597E0 100%);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); ;
+    height: 18rem;
+    width: 71rem;
+    border-radius: 10px;
+}
+
+.heading1 {
+    margin: 2rem;
+    font-size: xx-large;
+    text-transform: uppercase;
+    padding-top: 1rem;
+}
+
+.paragraph2{
+    font-size: x-large;
+    padding-left: 3rem;
+    padding-right: 3rem;
+}
+
+
+/* It includes the Css of Our values box */
+
+.our-values{
+    margin: 3rem 4rem;
+    background: linear-gradient(90deg, #1597E0 0%, #5AAEDE 32%, #A7C3D3 53%, #5EAFDE 74%, #1597E0 100%);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2); ;
+    height: 18rem;
+    width: 71rem;
+    border-radius: 10px;
+}
+
+.heading2 {
+    font-size: xx-large;
+    text-transform: uppercase;
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+    padding-left: 2rem;
+}
+
+.values-list {
+     padding-left: 5rem;
+     padding-right: 3rem;
+     font-size: x-large;
+     align-self: center;
+     line-height: 2.5rem;
+}
+
+
+/* It includes the Css of choose us box */
+
+.why-choose-us{
+    margin-top: 2rem;
+    margin-left: 6.5rem;
+    background: linear-gradient(90deg, #1597E0 0%, #5AAEDE 32%, #A7C3D3 53%, #5EAFDE 74%, #1597E0 100%);
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); ;
+    height: 18rem;
+    width: 71rem;
+    border-radius: 10px;
+}
+
+.heading3 {
+    margin: 2rem 0 1rem 2rem;
+    font-size: xx-large;
+    text-transform: uppercase;
+    padding-top: 1rem;
+}
+
+.choose-list {
+     padding-left: 5rem;
+     padding-right: 3rem;
+     font-size: x-large;
+     align-self: center;
+     line-height: 2.5rem;
+}
+
+/* It includes the css of our team */
+
+.our-team {
+  /* width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 2px solid #333;
+  text-align: center; */
+  margin: 3rem 4rem;
+  background: linear-gradient(90deg, #1597E0 0%, #5AAEDE 32%, #A7C3D3 53%, #5EAFDE 74%, #1597E0 100%);
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.6); 
+  height: 40rem;
+  width: 71rem;
+  border-radius: 10px;
+}
+
+.heading4 {
+  margin: 2rem 0 1rem 2rem;
+  font-size: xx-large;
+  text-transform: uppercase;
+  padding-top: 1rem;
+}
+
+.description {
+  font-size: large;
+  padding-left: 3rem;
+  padding-right: 3rem;
+  padding-bottom: 1rem;
+}
+
+.image-row {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 3rem;
+}
+
+.image-container {
+  margin: 0 3rem; 
+}
+
+.image-container img {
+  width: 8rem;
+  height: 8rem;
+  border-radius: 50%;
+  border: 3px solid #005A9C;
+}
+
+
+.image-container p {
+  margin-top: 5px;
+  font-size: large;
+  max-width: 12rem;
+}
+
+.top-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.bottom-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+
+.thank {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1rem 0;
+}
+
+/* Title Styling */
+.thank-txt {
+  font-family: "Arizonia",sans-serif;
+  font-size: 400;
+  margin: 0 2rem;
+  white-space: nowrap;
+}
+
+.container-last {
+  display: flex;
+  justify-content: center;
+  font-family: "Crimson Text",sans-serif;
+  margin: 1rem 6rem  ;
+  font-size: x-large;
+  text-align: center;
+}
+
+
+.line-with-dots {
+  position: relative;
+  width: 40rem; /* Adjust the width of the line */
+  height: 1px; /* Thickness of the line */
+  background-color: black;
+  margin: 50px auto; /* Center the line horizontally */
+}
+
+.line-with-dots::before, .line-with-dots::after {
+  content: '';
+  position: absolute;
+  width: 10px; /* Size of the dots */
+  height: 10px;
+  background-color: black;
+  border-radius: 50%;
+  top: -4px; /* Adjust the vertical position of the dots */
+}
+
+.line-with-dots::before {
+  left: -10px; /* Position the left dot */
+}
+
+.line-with-dots::after {
+  right: -10px; /* Position the right dot */
+}
+

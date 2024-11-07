@@ -1,0 +1,116 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/userprofile.css' %}">
+    <title>user profile</title>
+</head>
+<body> 
+
+ {% include 'base/nav.html' %}    
+
+
+    {% if user_profile %}
+    <div class="main-container">
+            <!-- Left Section: Profile Picture and Name -->
+            <div class="profile-left-box">
+                <div class="profile-picture">
+                    <!-- <span>👤</span> -->
+                    <span>
+                        
+
+                        {% if user_profile.image %}
+                            <img src="{{ user_profile.image.url }}" alt="Profile Image" style="width:150px;height:150px;">
+                        {% else %}
+                            <img src="{% static 'img/default.png' %}" alt="Default Profile Image" style="width:150px;height:150px;">
+                        {% endif %}
+                        
+                    </span>
+                </div>
+                <h2>{{ user_profile.uname }}</h2>
+            </div>
+        
+            <!-- Center Section: Profile Information -->
+            <div class="profile-info-box">
+                <div class="profile-info">
+                    <div class="field-group">
+                        <label>Email:</label> 
+                        <div class="field-value">{{ user_profile.uemail }}</div>
+                    </div>
+        
+                    <div class="field-group">
+                        <label>Mobile:</label>
+                        <div class="field-value"> {{ user_profile.umobile }}</div>
+                    </div>
+        
+                    <div class="field-group">
+                        <label>Address:</label>
+                        <div class="field-value">{{ user_profile.uaddress }}</div>
+                    </div>
+        
+                    <div class="field-group">
+                        <label>Gender:</label>
+                        <div class="field-value">{{ user_profile.get_gender_display }}</div>
+                    </div>
+        
+                    <div class="field-group">
+                        <label>Age:</label>
+                        <div class="field-value">{{ user_profile.age }}</div>
+                    </div>
+        
+                    <div class="field-group">
+                        <label>Date of Birth:</label>
+                        <div class="field-value">{{ user_profile.date_of_birth }}</div>
+                    </div>
+        
+                    <div class="field-group">
+                        <label>Aadhar number / Vid number:</label>
+                        <div class="field-value">{{ user_profile.uaadhar }}</div>
+                    </div>
+        
+                    <div class="field-group">
+                        <label>Regional / area:</label>
+                        <div class="field-value">{{ user_profile.area_profile }}</div>
+                    </div>
+        
+                    <div class="field-group">
+                        <label>District:</label>
+                        <div class="field-value">{{ user_profile.district }}</div>
+                    </div>
+        
+                    <a href="{% url 'uuprofile' user_profile.uname %}" class="update-link">Update details</a>
+                </div>
+            </div>
+        
+            <!-- Right Section: Reports -->
+            <div class="profile-reports-box">
+                <div class="reports">Reports</div> 
+                {% if user_profile.report %}
+
+                {% else %}
+
+               <div class="no-reports">No reports found</div>
+
+                {% endif %}
+                
+            </div>
+
+
+        </div>
+    {% else %}
+        <p>No profile information available.</p>
+    {% endif %}
+
+
+ {% include 'base/footer.html' %}
+
+</body>
+</html>
+
+

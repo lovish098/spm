@@ -1,0 +1,225 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+ 
+body{
+  overflow-x: hidden;
+  
+}
+
+/* It is the css of slide image */
+
+.w3-content {
+max-width: 80rem;
+overflow: hidden;
+max-height: 30rem;
+margin: 2rem 4rem;
+border-radius: 30px;
+}
+
+.mySlides{
+width: 100%;
+}
+
+/* Container for the Title and Lines */
+.welcome {
+display: flex;
+align-items: center;
+justify-content: center;
+}
+
+/* Title Styling */
+.wlcm-txt {
+font-family: "Arizonia",sans-serif;
+font-size: 3em;
+margin: 0 20px;
+white-space: nowrap;
+}
+
+/* Line Styling */
+.line {
+border-top: 1px solid black;
+width: 8rem;
+position: relative;
+}
+
+.line::before, .line::after {
+content: '';
+width:  8px;
+height: 8px;
+background-color: black;
+border-radius: 50%;
+position: absolute;
+top: -4px;
+}
+
+.line::before {
+left: -10px;
+}
+
+.line::after {
+right: -10px;
+}
+
+
+/* Content Container for Paragraph and Images */
+.content-container {
+display: flex;
+max-width: auto;
+margin-top: 2rem;
+margin-left: 5.5rem;
+margin-right: 5.5rem;
+}
+
+big{
+font-size: larger;
+font-weight: 600;
+}
+
+/* Paragraph Section */
+.paragraph-container {
+width: 60%;
+}
+
+p {
+font-size: 1.2em;
+text-align: left;
+line-height: 2;
+}
+
+/* Image Section Floating to the Right */
+.image-container {
+display: flex;
+flex-wrap: wrap;
+justify-content: flex-end;
+width: 40%;
+gap: 2rem;
+padding-left: 3rem;
+}
+
+.circle {
+width: 10em;
+height: 10em;
+border-radius: 50%;
+overflow: hidden;
+}
+
+.circle .img1 {
+width: 100%;
+height: 100%;
+object-fit: cover;
+}
+
+/* It includes the css of line with two dots */
+
+.line-with-dots {
+position: relative;
+width: 40rem; /* Adjust the width of the line */
+height: 1px; /* Thickness of the line */
+background-color: black;
+margin: 50px auto; /* Center the line horizontally */
+}
+
+.line-with-dots::before, .line-with-dots::after {
+content: '';
+position: absolute;
+width: 10px; /* Size of the dots */
+height: 10px;
+background-color: black;
+border-radius: 50%;
+top: -4px; /* Adjust the vertical position of the dots */
+}
+
+.line-with-dots::before {
+left: -10px; /* Position the left dot */
+}
+
+.line-with-dots::after {
+right: -10px; /* Position the right dot */
+}
+
+/* It is the css of login and appointment cards */
+
+.card-container {
+display: flex;
+justify-content: center;
+align-items: flex-start;
+padding: 50px;
+}
+
+.card {
+background: linear-gradient(180deg, #1597E0 0%, #D9D9D9 100%);
+box-shadow: 20px 20px 10px 1px rgba(0, 0, 0, 0.25);
+border-radius: 40px 0px;
+padding: 20px;
+border-radius: 10px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+text-align: center;
+width: 20rem;
+height: 20rem;
+margin: 0 10px;
+}
+
+.icon .icon-img {
+width: 40px;
+height: 40px;
+margin-bottom: 10px;
+}
+
+.btn {
+border: 2px solid #000;
+padding: 10px 20px;
+border-radius: 5px;
+cursor: pointer;
+font-size: 16px;
+font-weight: bold;
+margin-bottom: 10px;
+}
+
+.card-txt {
+font-family: "Times New Roman", Times, serif;
+font-size: 1rem;
+color: #000;
+margin-top: 1rem;
+text-align: center;
+font-style: italic;
+text-transform: uppercase;
+letter-spacing: 1px;
+}
+
+.divider {
+width: 2px;
+height: 20em;
+background-color: #000;
+margin: 0 3rem;
+}
+
+.line-with-dots {
+position: relative;
+width: 40rem; /* Adjust the width of the line */
+height: 1px; /* Thickness of the line */
+background-color: black;
+margin: 50px auto; /* Center the line horizontally */
+}
+
+.line-with-dots::before, .line-with-dots::after {
+content: '';
+position: absolute;
+width: 10px; /* Size of the dots */
+height: 10px;
+background-color: black;
+border-radius: 50%;
+top: -4px; /* Adjust the vertical position of the dots */
+}
+
+.line-with-dots::before {
+left: -10px; /* Position the left dot */
+}
+
+.line-with-dots::after {
+right: -10px; /* Position the right dot */
+}
+

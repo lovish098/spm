@@ -1,0 +1,154 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/aboutus.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <title>About us</title>
+</head>
+<body>      
+       
+    
+     <!-- It includes the navbar -->
+     {% include 'base/nav.html' %}
+     
+           <div class="about"  id="section1">
+                 <div class="line"></div>
+                   <h1 class="about-txt">About Sparsh</h1>
+                 <div class="line"></div>
+         </div>
+
+            <div class="container1">
+                <p class="paragraph1">
+                    
+                    Sparsh is designed to meet the growing demands of modern healthcare facilities. In today’s fast-paced medical environment, efficient management of patient information, appointments, billing, staff schedules, and inventory is vital. Sparsh seamlessly integrates these essential functions, allowing healthcare providers to focus on delivering high-quality patient care. <br>
+                    Founded In[Year], We Have Been Dedicated To [What You Do Or The Problem You Solve]. Our Journey Began When [A Brief Story About The Inception Of Your Company Or Idea].
+                                        
+                </p>
+           </div>
+
+                 <!-- it is the div of our mission -->
+
+           <div class="our-mission">
+              <h2 class="heading1">Our Mission</h2>
+              <p class="paragraph2">
+                Our mission is to transform healthcare management by delivering a technology-driven system that optimizes hospital operations and enhances the standard of patient care. By integrating clinical, administrative, and financial functions, Sparsh aims to improve efficiency, foster collaboration among healthcare professionals, and provide superior patient experiences. We are dedicated to positively impacting the healthcare ecosystem and contributing to the well-being of communities worldwide.
+              </p>
+           </div>
+
+                 <!-- it is the div of our values -->
+
+           <div class="our-values">
+            <h2 class="heading2">Our Values</h2>
+           <ul class="values-list">
+            <li> 
+                Integrity: We stand by our word and ensure transparency in all our dealings.
+            </li>
+            <li>
+                Innovation: We embrace creativity and continually seek to improve our services products.
+
+            </li>
+            <li>
+                Community: We believe in giving back and supporting the communities we serve.
+            </li>
+           </ul>
+         </div>
+
+              <!-- it is the div of why choose us -->
+
+         <div class="why-choose-us">
+            <h2 class="heading3">why choose us ?</h2>
+            <ul class="choose-list">
+                <li> 
+                    Quality: We are committed to delivering only the best.
+
+                </li>
+                <li>
+                    Customer-Centric: Your satisfaction is our top priority. We listen to your needs and strive to exceed your expectations.
+
+    
+                </li>
+                <li>
+                     Sustainability: We are dedicated to environmentally-friendly practices and sustainable growth.
+                </li>
+               </ul>
+         </div>
+
+           <!-- it is the div of our team -->
+
+         <div class="our-team ">
+            <h2 class="heading4">Meet Our Team</h2>
+            <p class="description">Our passionate team is made up of [describe your team: their expertise, backgrounds, or what makes them unique]. Together, we work tirelessly to deliver [products/services] that [benefit your customers].</p>
+    
+            <div class="top-row image-row">
+                <div class="image-container">
+                    <img src="{% static 'img/Lovish pic.jpg' %}" alt="Image 1">
+                    <p>
+                        Lovish :CEO ( Chief Executing Officer ) 
+
+                    </p>
+                </div>
+                <div class="image-container image-center">
+                    <img src="{% static 'img/Satish pic.jpg' %}" alt="Image 2">
+                    <p>Satish: COO ( Chief Operating Officer ) , Technical Director ,
+                         CIO ( Chief Information Officer ) , IT Vice President , </p>
+                </div>
+                <div class="image-container">
+                    <img src="{% static 'img/Irshad pic.jpg' %}" alt="Image 3">
+                    <p>
+                        Irshad Ahmad: CMO 
+                        ( Chief Marketing Officer ),CSO ( Chief Sales Officer ) , Managing Director  
+                        
+                    </p>
+                </div>
+            </div>
+    
+            <div class="bottom-row image-row">
+                <div class="image-container">
+                    <img src="{% static 'img/Uday pic.jpg' %}" alt="Image 4">
+                    <p>
+                        Uday Sharma: Frontend Developer
+                        
+                    </p>
+                </div>
+                <div class="image-container image-center">
+                    <img src="{% static 'img/Anurag pic.jpg' %}" alt="Image 5">
+                    <p>Anurag: UI & UX Designer and Graphic Designer
+                    </p>
+                </div>
+                <div class="image-container image-center">
+                    <img src="{% static 'img/aayush pic.jpg' %}" alt="Image 5">
+                    <p> Aayush:Databases Manager and Backend Developer.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- it includes the about us text and under text of thank you -->
+
+    
+
+    <div class="container-last">
+        <p class="paragraph-last">
+            
+            For Being A Part Of Our Journey. We Invite You To Explore Our SPARSH And Connect With Us. Together, Let's Make A Difference!
+        </p>
+   </div>
+
+   <div class="about">
+    <div class="line"></div>
+      <h1 class="about-txt">Thank You</h1>
+    <div class="line"></div>
+</div>
+  
+
+
+<!-- It includes the footer part -->
+
+{% include 'base/footer.html' %}
+
+
+</body>
+</html>

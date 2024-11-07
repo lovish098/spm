@@ -1,0 +1,60 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+     <link rel="stylesheet" type="text/css" href="{% static 'css/urprofile.css' %}">
+    <title>regional / area update profile</title>
+</head>
+<body>
+
+ {% include 'base/nav.html' %}  
+ 
+
+    <br>
+     <div class="containerf"> 
+        <div class="form-containerf">
+            <h2>Update / Add User Profile Details</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+                {{ form.non_field_errors }}
+                <div class="form-groupf">
+                    <label>Username:</label>
+                    {{ form.uname.errors }}
+                    {{ form.uname }}
+                </div>
+               
+                <div class="form-groupf">
+                    <label>Address:</label>
+                    {{ form.uaddress.errors }}
+                    {{ form.uaddress }}
+                </div>
+                 
+                <div class="form-groupf">
+                    <label>District:</label>
+                    {{ form.district.errors }}
+                    {{ form.district }}
+                </div>
+                <div class="form-groupf">
+                    <label>Profile Image:</label>
+                    {{ form.image.errors }}
+                    {{ form.image }}
+                </div>
+                <button type="submit" class="submit-btnf">Submit</button>
+            </form><br><br>
+        </div>
+    </div>
+    <br>
+   
+   
+
+ {% include 'base/footer.html' %}
+
+</body>
+</html>

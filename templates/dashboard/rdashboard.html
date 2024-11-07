@@ -1,0 +1,93 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="{% static 'css/rdashboard.css' %}">
+    <title>Area Profile Dashboard</title>
+</head>
+<body>
+
+    {% include 'base/nav.html' %}
+
+    <div style="display: flex; justify-content: space-between;"> 
+
+        <h1>Dashboard for {{ area_profile.uname }}</h1>
+
+        
+        <form method="get" action="{% url 'download-area-user' %}">
+            <label for="user_type">Download Type:</label>
+            <select name="user_type" id="user_type" required>
+                <option value="" disabled selected>Select download type</option>
+                <option value="patient">Patient</option>
+                <option value="doctor">Doctor</option>
+            </select>
+
+            <label for="format">Format:</label>
+            <select name="format" id="format" required>
+                <option value="" disabled selected>Select format</option>
+                <option value="csv">CSV</option>
+                <option value="xls">XLS</option>
+            </select>
+
+            <button type="submit">Download</button>
+        </form>
+
+    </div>  
+   
+    <hr><br>
+    <h2>Patients</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Hospital</th>
+                <th>Registration Date</th>
+                <th>Profile</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for patient in user_profile %}
+                <tr>
+                    <td>{{ patient.uname }}</td>
+                    <td>{{ patient.uemail }}</td>
+                    <td>{{ patient.area_profile.uname }}</td>
+                    <td>{{ patient.created }}</td>
+                    <td><a href="{% url 'rpatient_profile' patient.id %}">View Profile</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <h2>Doctors</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Opd Type</th>
+                <th>Hospital</th>
+                <th>Registration Date</th>
+                <th>Profile</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for doctor in doctor_profile %}
+                <tr>
+                    <td>{{ doctor.uname }}</td>
+                    <td>{{ doctor.uemail }}</td>
+                    <td>{{ doctor.opd_type.name }}</td>
+                    <td>{{ doctor.area_profile.uname }}</td>
+                    <td>{{ doctor.created }}</td>
+                    <td><a href="{% url 'rdoctor_profile' doctor.id %}">View Profile</a></td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+   
+</body>
+</html>

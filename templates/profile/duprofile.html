@@ -1,0 +1,99 @@
+{% load static %}
+  
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/udprofile.css' %}">
+    <title>doctor profile</title>
+</head>
+<body>
+
+ {% include 'base/nav.html' %}  
+
+
+
+    <br>
+     <div class="containerf"> 
+        <div class="form-containerf">
+            <h2>Update / Add User Profile Details</h2>
+            <form action="" method="post" enctype="multipart/form-data">
+            {% csrf_token %}
+
+                {{ form.non_field_errors }}
+                <div class="form-groupf">
+                    <label>Username:</label>
+                    {{ form.uname.errors }}
+                    {{ form.uname }}
+                </div>
+                <div class="form-groupf">
+                    <label>Mobile:</label>
+                    {{ form.umobile.errors }}
+                    {{ form.umobile }}
+                </div>
+                <div class="form-groupf">
+                    <label>Email:</label>
+                    {{ form.uemail.errors }}
+                    {{ form.uemail }}
+                </div>
+                <div class="form-groupf">
+                    <label>Address:</label>
+                    {{ form.uaddress.errors }}
+                    {{ form.uaddress }}
+                </div>
+                <div class="form-groupf">
+                    <label>Gender:</label>
+                    {{ form.gender.errors }}
+                    {{ form.gender }}
+                </div>
+                <div class="form-groupf">
+                    <label>Age:</label>
+                    {{ form.age.errors }}
+                    {{ form.age }}
+                </div>
+                <div class="form-groupf">
+                    <label>Date of Birth:</label>
+                    {{ form.date_of_birth.errors }}
+                    {{ form.date_of_birth }}
+                </div>
+                <div class="form-groupf">
+                    <label>Aadhar:</label>
+                    {{ form.uaadhar.errors }}
+                    {{ form.uaadhar }}
+                </div>
+                <div class="form-groupf">
+                    <label>Profile Image:</label>
+                    {{ form.image.errors }}
+                    {{ form.image }}
+                </div>
+                <div class="form-groupf">
+                    <label>Area Profile:</label>
+                    {{ form.area_profile.errors }}
+                    {{ form.area_profile }}
+                </div>
+                 <div class="form-groupf">
+                    <label for="id_area_profile">opd type:</label>
+                    {{ form.opd_type.errors }}
+                    {{ form.opd_type }}
+                </div>
+                <div class="form-groupf">
+                    <label>District:</label>
+                    {{ form.district.errors }}
+                    {{ form.district }}
+                </div>
+                <button type="submit" class="submit-btnf">Submit</button>
+            </form><br><br>
+        </div>
+    </div>
+    <br>
+   
+   
+
+ {% include 'base/footer.html' %}
+
+</body>
+</html>

@@ -1,0 +1,118 @@
+
+
+/* it includes the css of download appointment text */
+
+.welcome {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  /* Title Styling */
+  .wlcm-txt {
+    font-family: "Arizonia",sans-serif;
+    font-size: 3em;
+    white-space: nowrap;
+    font-weight: 500;
+    padding-right: 1rem;
+    padding-left: 1rem;
+  }
+  
+  /* Line Styling */
+  .line {
+    border-top: 1px solid black;
+    width: 12rem;
+    position: relative;
+  }
+  
+  .line::before, .line::after {
+    content: '';
+    width:  8px;
+    height: 8px;
+    background-color: black;
+    border-radius: 50%;
+    position: absolute;
+    top: -4px;
+  }
+  
+  .line::before {
+    left: -10px;
+  }
+  
+  .line::after {
+    right: -10px;
+  }
+  
+/* It is the css of download appointment box */
+
+  .appointment-box {
+    background: linear-gradient(90deg, #1597E0 0%, #5AAEDE 32%, #A7C3D3 53%, #5EAFDE 74%, #1597E0 100%);
+    padding: 1rem;
+    border-radius: 15px;
+    height: 20rem;
+    width: 45rem;
+    margin: 2rem auto;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.6); 
+    text-align: center; /* Center alignment for the content */
+    color: white;
+}
+
+
+.input-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top:1rem ;
+    margin-bottom: 1rem;
+}
+
+.input-row label {
+    padding-top: 2rem;
+    font-size: 1.5em;
+    margin-right: 1rem;
+    margin-left: 5rem;
+    color: #000;
+}
+
+.input-row input {
+  margin-top: 2rem;
+   height: 2.5rem;
+    flex: 1;
+    padding: 1rem;
+    border-radius: 30px;
+    border: 1.5px solid black;
+    font-size: 0.9em;
+    margin-right: 8rem;
+}
+
+button {
+    height: 2.5rem;
+    width: 10rem;
+    font-size: 1.5em;
+    border-radius: 50px;
+    background-color: #1597E0;
+    color: white;
+    border: 1.5px solid black;
+    cursor: pointer;
+    margin-top: 2rem;
+    margin-bottom: 3rem; 
+}
+
+button:hover {
+    background-color: #005A9C;
+}
+
+.book-appointment {
+  display: block;
+    font-size: 1.2em;
+    color: black;
+    text-decoration: underline;
+    padding-right: 30rem;
+}
+
+.book-appointment:hover {
+    color: #003399
+}
+

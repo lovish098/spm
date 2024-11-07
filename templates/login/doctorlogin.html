@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/doctorlogin.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <title>Doctor Login</title>
+</head>
+<body>
+   
+   
+
+ <!-- It includes the navbar -->
+  {% include 'base/nav.html' %}
+
+
+    <div class="welcome">
+        <div class="line"></div>
+        <h1 class="wlcm-txt">Doctor Login</h1>
+        <div class="line"></div>
+       </div>
+    
+       <div class="container">
+       <div class="login-container">
+        <div class="login-box">
+            <div class="login-left">
+                <h2>Login</h2>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <label for="username">Username/Phone No.</label>
+                    <input type="text" id="username" name="username" placeholder="Username/Phone Number" required>
+                    
+                    <label for="password">Password</label>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    
+                    <button type="submit">Sign In</button>
+                    
+<!--                     <div class="login-options">
+                        <a href="#">Forgot Password</a>
+                    </div> -->
+                </form>
+            </div>
+            <div class="login-right">
+                <h1>WELCOME</h1>
+                <p>TO LOGIN PAGE</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="line-with-dots"></div>
+
+    <!-- It includes the footer part -->
+
+    {% include 'base/footer.html' %}
+
+
+</body>
+</html>
+    
+    

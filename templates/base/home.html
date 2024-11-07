@@ -1,0 +1,156 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <title>Home</title>
+</head>
+<body>
+
+ {% include 'base/nav.html' %}    
+
+ <!-- It includes the image slider -->
+
+
+ <div class="w3-content " >
+    <img class="mySlides" src="{% static 'img/paediatrician.jpg' %}" >
+    <img class="mySlides" src="{% static 'img/stethoscope.jpg' %}" >
+    <img class="mySlides" src="{% static 'img/doctor and patient.jpg' %}" >
+  </div>
+  
+
+    <!-- It includes the welcome text -->
+
+  <div class="welcome">
+    <div class="line"></div>
+    <h1 class="wlcm-txt">Welcome To Sparsh</h1>
+    <div class="line"></div>
+   </div>
+
+
+    <!-- Paragraph with Floating Images Section -->
+    <div class="content-container">
+        <!-- Paragraph Section -->
+        <div class="paragraph-container">
+            <p>
+                <big>Welcome to Sparsh – Revolutionizing Healthcare Management</big> <br>
+
+                At Sparsh, we are dedicated to transforming the way healthcare facilities operate. Our advanced hospital management system is designed to streamline hospital workflows, enhance operational efficiency, and improve patient care. By integrating key functions such as patient records, appointments, billing, staff scheduling, and inventory management, Sparsh provides a comprehensive solution for healthcare providers to focus on what matters most—delivering high-quality care to their patients.
+                <br>
+                We understand the challenges healthcare organizations face in managing complex operations while maintaining patient satisfaction. Sparsh addresses these issues by offering an intuitive, user-friendly platform that automates administrative tasks, reduces the risk of errors, and ensures timely access to vital information. Our goal is to empower hospitals and clinics to achieve operational excellence, minimize delays, and enhance the overall patient experience.
+                
+            </p>
+        </div>
+
+
+        <!-- Circular Image Section -->
+        <div class="image-container">
+            <div class="circle"><img class="img1" loading="eager"  src="{% static 'img/2doctors.jpg' %}" alt="Image 1"></div>
+            <div class="circle"><img class="img1" loading="eager"  src="{% static 'img/stethoscope.jpe' %}g" alt="Image 2"></div>
+            <div class="circle"><img class="img1" loading="eager"  src="{% static 'img/happy patient.jpg' %}" alt="Image 3"></div>
+            <div class="circle"><img class="img1" loading="eager"  src="{% static 'img/female doctor.jpg' %}" alt="Image 4"></div>
+            <div class="circle"><img class="img1" loading="eager"  src="{% static 'img/checkup.jpg' %}" alt="Image 5"></div>
+        </div>
+    </div>
+
+    <div class="line-with-dots"></div>
+
+    <!-- it icludes login and appointment card -->
+
+    {% if request.user.is_authenticated %}
+
+    {% for user in request.user.groups.all %}
+    {% if user.name == 'user' %}
+    <div class="card-container" id="section1">
+        <div class="card">
+            <div class="icon">
+                <img class="icon-img" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>
+            </div>
+            <a href="{% url 'ulogin' %}"><button class="btn">Downlaod Appointment</button></a>
+            <p class="card-txt">Click on the login button to explore our services.<br>
+            Your number is required when you are logging in.</p>
+        </div>
+        <div class="divider"></div>
+        <div class="card">
+            <div class="icon">
+                <img class="icon-img" src="https://img.icons8.com/ios-filled/50/000000/calendar--v1.png"/>
+            </div>
+        <a href="{% url 'appointment' %} "><button class="btn">Make a Appointment</button></a>
+            <p class="card-txt">You can make the appointment with doctor<br>
+            according to your day, date, time.</p>
+        </div>
+  </div>
+  
+    {% elif user.name == 'doctor' %}
+    <div class="card-container" id="section1">
+        <div class="card">
+            <div class="icon">
+                <img class="icon-img" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>
+            </div>
+            <a href="{% url 'ulogin' %}"><button class="btn">Download appointment list</button></a>
+            <p class="card-txt">Click on the login button to explore our services.<br>
+            Your number is required when you are logging in.</p>
+        </div>
+  </div>    
+    
+    {% elif user.name == 'area' %}
+    
+    {% endif %}   
+    {% endfor %}
+
+    {% else %}
+    <div class="card-container" id="section1">
+            <div class="card">
+                <div class="icon">
+                    <img class="icon-img" src="https://img.icons8.com/ios-glyphs/30/000000/user--v1.png"/>
+                </div>
+                <a href="{% url 'ulogin' %}"><button class="btn">Login</button></a>
+                <p class="card-txt">Click on the login button to explore our services.<br>
+                Your number is required when you are logging in.</p>
+            </div>
+            <div class="divider"></div>
+            <div class="card">
+                <div class="icon">
+                    <img class="icon-img" src="https://img.icons8.com/ios-filled/50/000000/calendar--v1.png"/>
+                </div>
+            <a href="{% url 'ulogin' %} "><button class="btn">Make a Appointment</button></a>
+                <p class="card-txt">You can make the appointment with doctor<br>
+                according to your day, date, time.</p>
+            </div>
+      </div>
+    
+     {% endif %}
+
+
+    <div class="line-with-dots"></div>
+ 
+ <!-- It includes the footer part -->
+
+    {% include 'base/footer.html' %}
+
+    <script>
+        var myIndex = 0;
+        carousel();
+        
+        function carousel() {
+          var i;
+          var x = document.getElementsByClassName("mySlides");
+          for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";  
+          }
+          myIndex++;
+          if (myIndex > x.length) {myIndex = 1}    
+          x[myIndex-1].style.display = "block";  
+          setTimeout(carousel, 2000); // Change image every 2 seconds
+        }
+        </script>
+
+        
+</body>
+</html>

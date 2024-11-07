@@ -1,0 +1,80 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preload">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+      <link rel="stylesheet" type="text/css" href="{% static 'css/regionalprofile.css' %}">
+    <title>Area profile</title>
+</head>
+<body>
+
+ {% include 'base/nav.html' %}    
+
+{% if area_profile %}
+ 
+    <div class="main-container">
+            <!-- Left Section: Profile Picture and Name -->
+            <div class="profile-left-box">
+                <div class="profile-picture">
+                    <!-- <span>👤</span> -->
+                    <span>
+                        
+
+                        {% if area_profile.image %}
+                            <img src="{{ area_profile.image.url }}" alt="Profile Image" style="width:150px;height:150px;">
+                        {% else %}
+                            <img src="{% static 'img/default.png' %}" alt="Default Profile Image" style="width:150px;height:150px;">
+                        {% endif %}
+                        
+                    </span>
+                </div>
+                <h2>{{ area_profile.uname }}</h2>
+            </div>
+        
+            <!-- Center Section: Profile Information -->
+            <div class="profile-info-box">
+                <div class="profile-info">
+                            
+                    <div class="field-group">
+                        <label>Address:</label>
+                        <div class="field-value">{{ area_profile.uaddress }}</div>
+                    </div>
+
+                    <div class="field-group">
+                        <label>District:</label>
+                         <div class="field-value">{{ area_profile.district.name }}</div>
+                    </div>
+                    
+                    <div class="field-group">
+                        <label>OPD type:</label>
+                        <div class="field-value">
+                            <ul>
+                                {% for opd_type in opd_types %} 
+                                    <li style="list-style: none;">{{ forloop.counter }}. {{ opd_type.name }}</li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+        
+                    
+        
+                    <a href="{% url 'ruprofile' area_profile.uname %}" class="update-link">Update details</a>
+                </div>
+            </div>
+        
+           
+
+        </div>
+    {% else %}
+        <p>No profile information available.</p>
+    {% endif %}
+
+ {% include 'base/footer.html' %}
+
+</body>
+</html>

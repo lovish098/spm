@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/download.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <title>Download Appointment</title>
+</head>
+<body>
+
+    {% include 'base/nav.html' %}
+
+    <div class="welcome">
+        <div class="line"></div>
+        <h1 class="wlcm-txt">Download Appointment</h1>
+        <div class="line"></div>
+       </div>
+        
+       <form action="" method="POST">
+        {% csrf_token %}
+         <div class="appointment-box">
+        
+        <div class="input-row">
+            <label for="appointment-number"> Appointment Number:</label>
+            <input type="text" id="appointment-number" name="unique_id" placeholder="Enter the appointment number" required>
+        </div>
+        <button type="submit">Submit</button>
+        <a href="{% url 'appointment' %}" class="book-appointment">Book an Appointment?</a> 
+
+       </form>        
+    </div>
+
+      
+    
+
+
+</body>
+</html>

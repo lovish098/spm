@@ -1,0 +1,189 @@
+{% load static %}
+<link rel="stylesheet" href="{% static 'css/nav.css' %}">
+
+{% if messages %}
+    <div class="alert" style="
+        padding: 20px;
+        background-color: #006d04; /* Green */
+        color: white;
+        margin-bottom: 15px;
+      ">
+        {% for message in messages %}
+            {{ message }}
+        {% endfor %}
+    </div>
+    {% endif %}
+<script>
+    setTimeout(function() {
+        const alertBox = document.querySelector('.alert');
+        if (alertBox) {
+            alertBox.style.display = 'none';
+        }
+    }, 5000); 
+</script> 
+
+
+<!-- It includes only Head part -->
+<section class="home" id="home">
+<header class="header">
+    <div class="head-text">
+        <h1 class="name">SPARSH </h1>
+        <p class="slogan"> स्वास्थ्य की ओर पहला कदम, हर अपॉइंटमेंट एक स्पर्श           
+        </p>
+    </div>
+    
+    <div class="icons">
+        <a href="#"></a> <i class="fa-brands fa-facebook-f"></i>
+        <a href="#"></a> <i class="fa-brands fa-instagram"></i>
+        <a href="#"></a> <i class="fa-brands fa-twitter"></i>
+        <a href="#section1" class="skip-content" >&ensp;Skip Content </a>
+        {% if request.user.is_authenticated %}
+            <a href="#" >| Hi , <span style="color: rgb(0, 0, 0);">{{ request.user.get_username }} </span></a>
+            <a href="/logout">|&ensp;Logout</a>
+            {% else %}
+                
+            {% endif %}
+        </div>
+
+</header>
+</section>
+
+
+<nav class="navbar">
+        
+    <ul>
+
+        
+        
+        <li><a href="{% url 'home' %}">Home</a></li>
+        {% if request.user.is_authenticated %} 
+        {% for user in request.user.groups.all %}
+        {% if user.name == 'user' %}
+
+            
+        {% endif %}
+        {% endfor %}
+        {% else %}
+        <li class="dropdown"> 
+            <a href="#">About Us</a>
+            <ul class="dropdown-content">
+                <li><a href="{% url 'aboutus' %}"> <i class="fa-solid fa-eye"></i>&ensp;About Sparsh</a></li>
+                <li><a href="{% url 'help' %}"><i class="fa-solid fa-circle-question"></i></i>&ensp;Help</a></li>
+            </ul>
+        </li>
+        {% endif %}
+        
+        <li class="dropdown">
+            <a href="#">Services</a>
+            <ul class="dropdown-content">
+                {% for user in request.user.groups.all %}
+                {% if user.name == 'user' %}
+                <li><a href="{% url 'appointment' %}"><i class="fa-solid fa-calendar-day"></i>&ensp;Book Appointment</a></li>
+                <li><a href="{% url 'dappointment' %}"><i class="fa-solid fa-download"></i>&ensp;Download Appointment</a></li>
+                {% elif user.name == 'doctor' %}
+                <li><a href="{% url 'ddashboard' %}"><i class="fa-solid fa-download"></i>&ensp;Dashboard</a></li>
+                {% elif user.name == 'area' %}
+                <li><a href="{% url 'rdashboard' %}"><i class="fa-solid fa-download"></i>&ensp;Dashboard</a></li>
+                
+                
+                {% endif %}   
+                {% endfor %}
+                <li><a href="#"><i class="fa-solid fa-print"></i>&ensp;Printing Machine</a></li>
+                <li><a href="https://abha.abdm.gov.in/abha/v3/register"><i class="fa-solid fa-fingerprint"></i>&ensp;Create ABHA Card</a></li>
+            </ul>
+        </li>
+
+
+        {% if request.user.is_authenticated %}
+
+        <li class="dropdown">
+            <a href="#">Profiles</a>
+            <ul class="dropdown-content">
+                
+                {% for user in request.user.groups.all %}
+                {% if user.name == 'user' %}
+                <li><a href="{% url 'uprofile' %}"><i class="fa-solid fa-users-line"></i>&ensp;user profile</a></li>
+                           
+                {% elif user.name == 'doctor' %}               
+                <li><a href="{% url 'dprofile' %}"><i class="fa-solid fa-users-line"></i>&ensp;doctor profile</a></li>
+                {% elif user.name == 'area' %}
+                <li><a href="{% url 'rprofile' %}"><i class="fa-solid fa-users-line"></i>&ensp;regional/area profile</a></li>  
+                {% endif %}   
+                {% endfor %}
+
+            </ul>
+        </li>
+
+        
+
+        <li class="dropdown">
+
+            {% for user in request.user.groups.all %}
+                {% if user.name == 'user' %}    
+                <a href="#">Other Services</a>
+                {% elif user.name == 'doctor' %}
+               
+                {% elif user.name == 'area' %}
+                
+                {% endif %}   
+                {% endfor %}
+           
+         
+            
+            <ul class="dropdown-content">
+
+                {% for user in request.user.groups.all %}
+                {% if user.name == 'user' %}    
+                <li><a href="#"><i class="fa-solid fa-download"></i>&ensp;Payment gateway</a></li>
+                {% elif user.name == 'doctor' %}
+               
+                {% elif user.name == 'area' %}
+                
+                {% endif %}   
+                {% endfor %}
+                
+            </ul>
+        </li>
+
+        {% else %}
+
+        <li class="dropdown">
+            <a href="#">Login</a>
+            <ul class="dropdown-content">
+                <li><a href="{% url 'ulogin' %}"><i class="fa-solid fa-users-line"></i>&ensp;User Login</a></li>
+                <li><a href="{% url 'dlogin' %}"><i class="fa-solid fa-user-doctor"></i>&ensp;Doctor Login</a></li>
+                <li><a href="{% url 'rlogin' %}"><i class="fa-solid fa-globe"></i>&ensp;Regional/Area Login</a></li>          
+            </ul>
+        </li>
+
+        <li class="dropdown">
+            <a href="#">Register</a>
+            <ul class="dropdown-content">
+                <li><a href="{% url 'uregister' %}"><i class="fa-solid fa-users-line"></i>&ensp;User Registration</a></li>
+                <li><a href="{% url 'dregister' %}"><i class="fa-solid fa-user-doctor"></i>&ensp;Doctor Registration</a></li>
+                <li><a href="{% url 'rregister' %}"><i class="fa-solid fa-user-doctor"></i>&ensp;Regional Registration</a></li>
+            </ul>
+        </li>
+
+        {% endif %}
+
+        <li class="dropdown">
+            <a href="{% url 'contactus' %}">Contact Us</a>
+       </li>
+
+
+    
+    </ul>
+</nav>
+
+<script>
+   document.querySelectorAll('nav a.smooth-scroll').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault(); // Prevent default anchor click behavior
+        const targetId = this.getAttribute('href'); // Get the target ID
+        document.querySelector(targetId).scrollIntoView({
+            behavior: 'smooth' // Smooth scroll to the target
+        });
+    });
+});
+</script>

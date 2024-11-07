@@ -1,0 +1,78 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link rel="stylesheet" href="{% static 'css/ddashboard.css' %}">
+</head>
+
+
+<body>
+
+    {% include 'base/nav.html' %}
+
+    <div style="display: flex; justify-content: space-between;">
+        <h1>Welcome, Dr. {{ doctor_profile.uname }} </h1>
+        <form method="get" action="{% url 'download_appointments' %}">
+            {% csrf_token %}
+            <label for="format">Download Format:</label>
+            <select name="format" id="format" required>
+                <option value="" disabled selected>Select format</option>
+                <option value="csv">CSV</option>
+                <option value="xls">XLS</option>
+            </select>
+            <button type="submit">Download</button>
+        </form>
+
+    </div>
+
+   
+    <hr> 
+
+    <h2>Appointments</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Appointment ID</th>
+                <th>Patient Name</th>
+                <th>Time Slot</th>
+                <th>Hospital</th>
+                <th>Status</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for appointment in appointments %}
+            <tr>
+                <td>{{ appointment.appointment_id }}</td>
+                <td>{{ appointment.user_profile.uname }}</td>
+                <td>{{ appointment.time_slot }}</td>
+                <td>{{ appointment.area_profile.uname }}</td>
+                <td>{{ appointment.get_appointment_status_display }}</td>
+                <td>
+                    <a href="{% url 'patient_profile' appointment.user_profile.id %}">View Profile</a>
+                    {% if appointment.appointment_status != 'C' %}
+                    <form method="post" action="{% url 'cancel_appointment' appointment.id %}" style="display:inline;">
+                        {% csrf_token %}
+                        <button type="submit" onclick="return confirm('Are you sure you want to cancel this appointment?');">Cancel</button>
+                    </form>
+                    {% endif %}
+                    
+                </td>
+            </tr>
+            {% empty %}
+            <tr>
+                <td colspan="5">No appointments found.</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+</body>
+</html>

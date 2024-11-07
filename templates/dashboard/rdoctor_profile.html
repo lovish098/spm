@@ -1,0 +1,24 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patient Profile - {{ doctor_profile.uname }}</title>
+    <link rel="stylesheet" href="{% static 'css/pp.css' %}">
+</head>
+<body>
+    <h1>Patient Profile: {{ doctor_profile.uname }}</h1>
+    <img src="{{ doctor_profile.image.url }}" alt="{{ doctor_profile.uname }}'s Image" width="150">
+
+    <p><strong>Mobile:</strong> {{ doctor_profile.umobile }}</p>
+    <p><strong>Email:</strong> {{ doctor_profile.uemail }}</p>
+    <p><strong>Address:</strong> {{ doctor_profile.uaddress }}</p>
+    <p><strong>Gender:</strong> {{ doctor_profile.get_gender_display }}</p>
+    <p><strong>Age:</strong> {{ doctor_profile.age }}</p>
+    <p><strong>District:</strong> {{ doctor_profile.district.name }}</p>
+
+    
+    <a href="{% url 'rdashboard' %}">Back to Dashboard</a>
+</body>
+</html>

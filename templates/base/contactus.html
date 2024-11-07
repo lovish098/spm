@@ -1,0 +1,64 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="{% static 'css/contactus.css' %}">
+    <link href="https://fonts.googleapis.com/css2?family=Arizonia&family=Crimson+Text&display=swap" rel="stylesheet">
+    <title>Contact Us</title>
+</head>  
+<body>
+
+{% include 'base/nav.html' %}
+
+    <!-- It is the css of contact us text -->
+
+    <div class="welcome" id="section1">
+        <div class="line"></div>
+        <h1 class="wlcm-txt">Contact Us</h1>
+        <div class="line"></div>
+       </div>
+
+
+       <!-- It is the css of two boxes-->
+
+        <div class="contact-container" >
+            <div class="left-side">
+                <h2>Get In Touch</h2>
+                <div class="icons">
+                    <a href="#"><i class="fa-brands fa-facebook-f"></i></a> 
+                    <a href="#"><i class="fa-brands fa-instagram"></i></a> 
+                    <a href="#"><i class="fa-solid fa-phone"></i></a> 
+                    <a href="#"><i class="fa-solid fa-location-dot"></i></a>
+                   <a href=""><i class="fa-solid fa-envelope"></i></a> 
+                </div>
+                <p><span>Address :</span> Abce Jhjaiaoisxjchjxokzx ooisisiwus8wsiws</p>
+                <p><span>Phone No. :</span> 12345678910</p>
+                <p><span>Email :</span> sparsh.healthservice@gmail.com</p>
+            </div>
+    
+            <form class="contact-form" action="" method="post">
+                {% csrf_token %}
+        <div class="input-container">
+            <input type="text" name="name" placeholder="Enter Your Name">
+            <input type="text" name="mobile" placeholder="Enter Your Mobile No.">
+        </div>
+        <div class="input-container">
+            <input type="email" name="email" placeholder="Enter Your Email Address">
+            <input type="text" name="subject" placeholder="Enter Your Subject">
+        </div>
+        <textarea placeholder="Enter Your Message" name="message"></textarea>
+        <button type="submit">Submit</button>
+    </form>
+        </div>
+      
+
+    <div class="line-with-dots"></div>
+
+
+    {% include 'base/footer.html' %}
+
+</body>
+</html>
